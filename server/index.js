@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const dal = require('./dal.js');
-
 const app = express();
 const port = 3000; // Define port correctly
 

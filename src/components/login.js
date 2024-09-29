@@ -69,7 +69,7 @@ function LoginForm(props) {
 
 // Handle regular form login
 function handleLogin() {
-  fetch(`http://localhost:3000/account/login/${email}/${password}`)
+  fetch(`${process.env.REACT_APP_API_URL}/account/login/${email}/${password}`)
     .then(response => response.text())
     .then(text => {
       try {
