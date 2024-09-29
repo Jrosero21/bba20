@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://db:27017';
+const url = process.env.MONGO_URL || 'mongodb://db:27017/myproject';  // Ensure 'db' is the service name
 let db = null;
 
 // Connect to MongoDB
