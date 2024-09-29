@@ -2,23 +2,27 @@ version: '3'
 services:
   frontend:
     build:
-      context: ./server
-      dockerfile: Dockerfile # Points to the frontend Dockerfile in the root directory
+      context: .  # Root directory, where your frontend Dockerfile is located
+      dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "80:80"  # Exposing port 80 for the frontend
     depends_on:
       - backend
+    environment:
+      - REACT_APP_API_URL=http://backend:3000  # Frontend calls backend by service name
 
   backend:
     build:
-      context: ./server  # Points to the backend directory
+      context: ./server  # Points to the backend directory where backend Dockerfile exists
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3000:3000"  # Backend exposed on port 3000
     environment:
-      - MONGO_URL=mongodb://db:27017/myproject
+      - MONGO_URL=mongodb://db:27017/myproject  # MongoDB connection
+    depends_on:
+      - db  # Ensure MongoDB starts before backend
 
   db:
     image: mongo:latest
     ports:
-      - "27017:27017"
+      - "27017:27017"  # Exposing MongoDB port

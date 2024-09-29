@@ -1,0 +1,16 @@
+{
+  "name": "bba-backend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "jwt-decode": "^4.0.0"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
