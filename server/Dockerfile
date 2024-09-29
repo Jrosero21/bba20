@@ -1,9 +1,10 @@
-# server/Dockerfile
 FROM node:20
 
 WORKDIR /app
-COPY package*.json ./  # Copies the package.json to install dependencies
+
+COPY ../package*.json ./  # Move up one level to copy the package.json from root
 RUN npm install
-COPY . .  # Copies all backend source code
+
+COPY . .                  # Copy all files from the current folder into the container
 EXPOSE 3000
 CMD ["node", "index.js"]
