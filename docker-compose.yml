@@ -2,7 +2,7 @@ version: '3'
 services:
   frontend:
     build:
-      context: .
+      context: ./server
       dockerfile: Dockerfile # Points to the frontend Dockerfile in the root directory
     ports:
       - "80:80"
