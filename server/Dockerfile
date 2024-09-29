@@ -2,13 +2,13 @@ FROM node:20
 
 WORKDIR /app
 
-# Use the package.json from the server folder
-COPY ./server/package*.json ./
+# Use the package.json directly (since we're already in the server folder)
+COPY package*.json ./
 
 RUN npm install
 
 # Copy all server code
-COPY ./server ./
+COPY . .
 
 EXPOSE 3000
 
