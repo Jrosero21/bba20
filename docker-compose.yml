@@ -9,7 +9,7 @@ services:
     depends_on:
       - backend
     environment:
-      - REACT_APP_API_URL=http://backend:3000  # Frontend calls backend by service name
+      - REACT_APP_API_URL=http://3.137.182.132:3000  # Frontend calls backend by service name
 
   backend:
     build:
