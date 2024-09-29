@@ -67,28 +67,27 @@ function LoginForm(props) {
       });
   }
 
-  // Handle regular form login
-  function handleLogin() {
-    const encodedEmail = encodeURIComponent(email); // Encode the email to handle special characters
-    fetch(`${process.env.REACT_APP_API_URL}/account/login/${encodedEmail}/${password}`)
-      .then(response => response.text())
-      .then(text => {
-        try {
-          const data = JSON.parse(text);
-          setUser(data); // Set the logged-in user in the context
-          props.setStatus('');
-          props.setShow(false);
-          console.log('JSON:', data);
-        } catch (err) {
-          props.setStatus(text);
-          console.error('Error during login:', text);
-        }
-      })
-      .catch(err => {
-        console.error('Fetch error:', err);
-        props.setStatus('Error logging in');
-      });
-  }
+// Handle regular form login
+function handleLogin() {
+  fetch(`${process.env.REACT_APP_API_URL}/account/login/${email}/${password}`)
+    .then(response => response.text())
+    .then(text => {
+      try {
+        const data = JSON.parse(text);
+        setUser(data); // Set the logged-in user in the context
+        props.setStatus('');
+        props.setShow(false);
+        console.log('JSON:', data);
+      } catch (err) {
+        props.setStatus(text);
+        console.error('Error during login:', text);
+      }
+    })
+    .catch(err => {
+      console.error('Fetch error:', err);
+      props.setStatus('Error logging in');
+    });
+}
 
   return (
     <>
