@@ -1,20 +1,22 @@
 version: '3'
-
 services:
   frontend:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile  # Assuming the frontend Dockerfile is in the root directory
     ports:
-      - "80:80"  # Frontend exposed on port 80
+      - "80:80"
     depends_on:
       - backend
 
   backend:
     build:
-      context: ./server  # This points to your backend folder where the backend Dockerfile is located
+      context: ./server  # Set the context to the server folder
+      dockerfile: Dockerfile
+    volumes:
+      - ./server:/app  # Mount the server folder into the container
     ports:
-      - "3000:3000"  # Backend exposed on port 3000
+      - "3000:3000"
     environment:
       - MONGO_URL=mongodb://mongo:27017/myproject  # MongoDB connection
     depends_on:

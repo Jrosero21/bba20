@@ -1,17 +1,17 @@
 FROM node:16
 
-# Set working directory to app folder in container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy all files from project root into the container's /app folder
-COPY ../package*.json ./  # Move up one level to copy from root
-COPY ../ ./
+# Copy files from server directory (context: ./server) into the container
+COPY package*.json ./
+COPY . .
 
-# Install the dependencies
+# Install dependencies
 RUN npm install
 
-# Expose backend port
+# Expose the backend port
 EXPOSE 3000
 
-# Start the server
+# Run the backend server
 CMD ["node", "index.js"]
