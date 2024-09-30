@@ -49,7 +49,7 @@ function NavBar() {
         </ul>
         {user && (
           <div className="ml-auto d-flex align-items-center">
-            <span className="navbar-text">Logged in as: {user.name}</span>
+            <span className="navbar-text">Logged in as: {user.email}</span>
             <button className="btn btn-link ml-2" onClick={handleLogout}>Logout</button>
           </div>
         )}
