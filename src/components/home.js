@@ -1,14 +1,14 @@
 import React from 'react'; 
 import { Card } from '../context'; 
 
-function Home() {
+ function Home() {
   return (
     <div className="container">
       <div className="row align-items-start">
-        {/* Left-side image */}
+      {/* Left-side image */}
         <div className="col-md-4 text-center"> {/* Center the image horizontally */}
-          <img src="createaccount.png" className="img-fluid left-image" alt="BB Logo" />
-        </div>
+         
+        </div> 
         {/* Center Card */}
         <div className="col-md-8">
           <div className="content">
