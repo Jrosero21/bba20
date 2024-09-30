@@ -1,6 +1,6 @@
 import React from 'react';  
-import { useNavigate } from 'react-router-dom';  // Use useNavigate instead of useHistory
-import { UserContext } from '../context';  // Import UserContext from context.js
+import { useNavigate } from 'react-router-dom';  
+import { UserContext } from '../context';  
 
 function NavBar() {
   const { user, setUser } = React.useContext(UserContext);
@@ -49,7 +49,7 @@ function NavBar() {
         </ul>
         {user && (
           <div className="ml-auto d-flex align-items-center">
-            <span className="navbar-text">Logged in as: {user.email}</span>
+            <span className="navbar-text">Logged in as: {user.name}</span>
             <button className="btn btn-link ml-2" onClick={handleLogout}>Logout</button>
           </div>
         )}
