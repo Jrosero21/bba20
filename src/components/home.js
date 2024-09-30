@@ -7,7 +7,7 @@ function Home() {
       <div className="row align-items-start">
         {/* Left-side image */}
         <div className="col-md-4 text-center"> {/* Center the image horizontally */}
-          <img src="BB-PURP.png" className="img-fluid left-image" alt="BB Purple Logo" />
+          <img src="/BB-PURP.png" className="img-fluid left-image" alt="BB Purple Logo" />
         </div>
         {/* Center Card */}
         <div className="col-md-8">
