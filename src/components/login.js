@@ -74,20 +74,29 @@ function handleLogin() {
     .then(text => {
       try {
         const data = JSON.parse(text);
-        setUser(data); // Set the logged-in user in the context
-        props.setStatus('');
-        props.setShow(false);
-        console.log('JSON:', data);
+        if (data.error) {
+          // Handle error by displaying the failure status
+          props.setStatus('Login failed');  // Show the failed message
+        } else {
+          // Proceed with login success
+          setUser(data); // Set the logged-in user in the context
+          props.setStatus('');
+          props.setShow(false);  // Show success message
+          console.log('Login successful:', data);
+        }
       } catch (err) {
-        props.setStatus(text);
+        // Handle error when parsing JSON fails
+        props.setStatus('Login failed');  // Show the failed message
         console.error('Error during login:', text);
       }
     })
     .catch(err => {
-      console.error('Fetch error:', err);
+      // Handle fetch error
       props.setStatus('Error logging in');
+      console.error('Fetch error:', err);
     });
 }
+
 
   return (
     <>
